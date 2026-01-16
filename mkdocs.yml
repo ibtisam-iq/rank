@@ -63,8 +63,7 @@ nav:
 extra:
   generator: false
   favicon: images/favicon.ico
-
-social:
+  social:
   - icon: fontawesome/brands/facebook
     link: https://www.facebook.com/ibtisam.iqx
 
