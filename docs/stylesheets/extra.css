@@ -1,0 +1,156 @@
+/* =====================================================
+   REPORT-STYLE LAYOUT — Clean, Professional, Wide Centered Content
+===================================================== */
+
+/* Hide both sidebars completely */
+.md-sidebar--primary,
+.md-sidebar--secondary {
+  display: none !important;
+}
+
+/* Critical fix: Force the grid to collapse reserved sidebar space */
+.md-main .md-grid,
+.md-main__inner .md-grid {
+  display: block !important;
+  max-width: none !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Remove offsets and add top spacing */
+.md-main__inner {
+  margin-left: 0 !important;
+  margin-top: 2rem !important;
+  width: 100% !important;
+}
+
+/* Wide centered content with balanced professional padding */
+.md-content {
+  max-width: 1350px !important;     /* Wider for better screen use while staying readable */
+  margin: 0 auto !important;
+  padding: 0 6rem !important;       /* More breathing room on ultra-wide screens */
+  width: 100% !important;
+  box-sizing: border-box;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1600px) {
+  .md-content { padding: 0 5rem !important; }
+}
+
+@media (max-width: 1440px) {
+  .md-content { padding: 0 4rem !important; }
+}
+
+@media (max-width: 1280px) {
+  .md-content { padding: 0 3.5rem !important; }
+}
+
+@media (max-width: 1024px) {
+  .md-content { padding: 0 3rem !important; }
+}
+
+@media (max-width: 768px) {
+  .md-content {
+    max-width: 100% !important;
+    padding: 0 2rem !important;
+  }
+
+  .md-typeset h1 { font-size: 2.4rem !important; }
+  .md-typeset h2 { font-size: 1.8rem !important; }
+}
+
+/* Hide footer */
+.md-footer,
+.md-footer-meta,
+.md-footer-nav {
+  display: none !important;
+}
+
+/* Slim elegant header */
+.md-header {
+  height: 64px;
+  box-shadow: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  background-color: var(--md-primary-fg-color);
+}
+
+.md-header__title {
+  font-size: 1.4rem !important;
+  font-weight: 600;
+  line-height: 64px !important;
+  margin-left: 1rem;
+}
+
+.md-header__title .md-logo {
+  height: 32px;
+  width: 32px;
+  margin-right: 0.6rem;
+  vertical-align: middle;
+}
+
+/* Professional typography & elements */
+.md-typeset {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #1e293b;
+}
+
+.md-typeset h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 2rem 0 1.5rem;
+  color: #1e293b;
+  border-bottom: none;
+}
+
+.md-typeset h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 2.5rem 0 1rem;
+  color: #1e293b;
+}
+
+.md-typeset h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 2rem 0 0.8rem;
+}
+
+.md-typeset ul,
+.md-typeset ol {
+  padding-left: 1.8rem;
+  margin: 1.2rem 0;
+}
+
+.md-typeset li {
+  margin: 0.6rem 0;
+}
+
+.md-typeset table {
+  width: 100% !important;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.95rem;
+}
+
+.md-typeset table th {
+  background-color: #f8fafc;
+  font-weight: 600;
+  padding: 1rem 0.8rem;
+  text-align: left;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.md-typeset table td {
+  padding: 0.9rem 0.8rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.md-typeset hr {
+  border: none;
+  border-top: 1px solid #e2e8f0;
+  margin: 3rem 0;
+}

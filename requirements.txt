@@ -1,0 +1,17 @@
+# Core site generator
+mkdocs==1.6.1
+
+# Material theme (final stable release line)
+mkdocs-material==9.7.0
+
+# Navigation & page management
+mkdocs-awesome-pages-plugin==2.10.1
+
+# Revision date plugin for "last updated" timestamps
+mkdocs-git-revision-date-localized-plugin>=1.2.0
+
+# Performance optimization
+mkdocs-minify-plugin>=0.8.0
+
+# Markdown and syntax extensions
+pymdown-extensions>=10.7

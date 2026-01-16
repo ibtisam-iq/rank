@@ -1,0 +1,72 @@
+site_name: "Ibtisam IQ"
+site_description: "Amazon Private Label & Marketplace Growth — Case Studies & Execution Playbooks"
+site_author: "Muhammad Ibtisam"
+site_url: "https://rank.ibtisam-iq.com"
+
+use_directory_urls: true
+strict: false
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.tabs
+    - navigation.top
+    - navigation.expand
+    - navigation.instant
+    - search.highlight
+    - search.suggest
+    - toc.follow
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-6
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-6
+        name: Switch to light mode
+  icon:
+    logo: material/briefcase
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - footnotes
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+
+plugins:
+  - search
+  - git-revision-date-localized:
+      type: date
+      timezone: Asia/Karachi
+      fallback_to_build_date: true
+
+nav:
+  - Home: index.md
+  - Experience: experience.md
+  - Execution: execution.md
+  - Evidences:
+      - Amazon Private Label (Year 1): evidences/year-1-canada-private-label-report-2025.md
+  - About: about.md    
+
+extra:
+  generator: false
+  favicon: images/favicon.ico
+
+social:
+  - icon: fontawesome/brands/facebook
+    link: https://www.facebook.com/ibtisam.iqx
+
+extra_css:
+  - stylesheets/extra.css
