@@ -9,13 +9,10 @@ strict: false
 theme:
   name: material
   favicon: images/favicon.ico
-  icon:
-    logo: null
+  logo: images/favicon.svg
   language: en
-  # custom_dir: docs/overrides
   features:
     - navigation.tabs
-    - navigation.tabs.sticky
     - navigation.top
     - navigation.expand
     - navigation.instant
@@ -28,13 +25,13 @@ theme:
       primary: indigo
       accent: blue
       toggle:
-        icon: material/brightness-6
+        icon: material/brightness-7
         name: Switch to dark mode
     - scheme: slate
       primary: indigo
       accent: blue
       toggle:
-        icon: material/brightness-6
+        icon: material/brightness-4
         name: Switch to light mode
 
 markdown_extensions:
@@ -61,13 +58,13 @@ nav:
   - Execution: execution.md
   - Evidences:
       - Amazon Private Label (Year 1): evidences/year-1-canada-private-label-report-2025.md
-  - About: about.md    
+  - About: about.md
 
 extra:
   generator: false
   social:
-  - icon: fontawesome/brands/facebook
-    link: https://www.facebook.com/ibtisam.iqx
+    - icon: fontawesome/brands/facebook
+      link: https://www.facebook.com/ibtisam.iqx
 
 extra_css:
   - stylesheets/extra.css
