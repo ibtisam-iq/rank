@@ -456,7 +456,7 @@ body {
   background: transparent !important;
   border: none !important;
   margin: 0 !important;
-  padding: 2rem 0 !important;
+  padding: 0 !important;
 }
 
 .md-footer-nav {
@@ -531,7 +531,7 @@ body {
 
 .md-content__inner {
   padding-top: 0;
-  padding-bottom: 4rem;
+  padding-bottom: 1rem;
 }
 
 .md-content__button {
