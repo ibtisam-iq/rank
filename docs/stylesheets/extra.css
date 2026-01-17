@@ -2,10 +2,16 @@
    REPORT-STYLE LAYOUT — Clean, Professional, Wide Centered Content
 ===================================================== */
 
-/* Hide both sidebars completely */
-.md-sidebar--primary,
-.md-sidebar--secondary {
-  display: none !important;
+html {
+  font-size: 16px;
+}
+
+/* Hide sidebars ONLY on desktop */
+@media (min-width: 1024px) {
+  .md-sidebar--primary,
+  .md-sidebar--secondary {
+    display: none !important;
+  }
 }
 
 /* Critical fix: Force the grid to collapse reserved sidebar space */

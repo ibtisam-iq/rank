@@ -8,6 +8,7 @@ strict: false
 
 theme:
   name: material
+  favicon: images/favicon.ico
   language: en
   features:
     - navigation.tabs
@@ -48,9 +49,9 @@ markdown_extensions:
 plugins:
   - search
   - git-revision-date-localized:
-      type: date
-      timezone: Asia/Karachi
-      fallback_to_build_date: true
+      type: timeago
+      enable_creation_date: false
+      fallback_to_build_date: false
 
 nav:
   - Home: index.md
@@ -62,7 +63,6 @@ nav:
 
 extra:
   generator: false
-  favicon: images/favicon.ico
   social:
   - icon: fontawesome/brands/facebook
     link: https://www.facebook.com/ibtisam.iqx
