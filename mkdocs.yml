@@ -9,9 +9,13 @@ strict: false
 theme:
   name: material
   favicon: images/favicon.ico
+  icon:
+    logo: null
   language: en
+  # custom_dir: docs/overrides
   features:
     - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.top
     - navigation.expand
     - navigation.instant
@@ -32,8 +36,6 @@ theme:
       toggle:
         icon: material/brightness-6
         name: Switch to light mode
-  icon:
-    logo: material/briefcase
 
 markdown_extensions:
   - admonition
@@ -69,3 +71,6 @@ extra:
 
 extra_css:
   - stylesheets/extra.css
+
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js
