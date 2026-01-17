@@ -2,7 +2,7 @@
 
 **How I moved from learning Amazon to operating live private label businesses.**
 
-### Phase 1 — Exposure & Self-Learning (2020–2021)
+### Exposure & Self-Learning (2020–2021)
 
 - Began learning Amazon fundamentals independently
 - Studied platform mechanics, seller workflows, and private label concepts
@@ -11,7 +11,7 @@
 
 This phase established foundational platform literacy, not execution.
 
-### Phase 2 — First Live Accounts & Wholesale Entry (2022)
+### First Live Accounts & Wholesale Entry (2022)
 
 - Entered Amazon operations through live client accounts
 - Started with wholesale execution to gain real operational exposure
@@ -25,7 +25,7 @@ This phase established foundational platform literacy, not execution.
 
 This phase transitioned knowledge into hands-on execution.
 
-### Phase 3 — Multi-Account Operations & Team Execution (2023)
+### Multi-Account Operations & Team Execution (2023)
 
 - Managed multiple Amazon wholesale accounts simultaneously
 - Built a small execution team to support daily operations
@@ -39,7 +39,7 @@ This phase transitioned knowledge into hands-on execution.
 
 This phase exposed the limitations of wholesale as a long-term model.
 
-### Phase 4 — Strategic Shift to Private Label & Multi-Account Execution (2024–Present)
+### Strategic Shift to Private Label & Multi-Account Execution (2024–Present)
 
 From 2024 onward, my work transitioned decisively into **private label–focused execution**, moving beyond wholesale-heavy operations into building, operating, and supervising private label brands across multiple markets.
 
