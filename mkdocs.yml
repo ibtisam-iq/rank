@@ -48,16 +48,17 @@ markdown_extensions:
 plugins:
   - search
   - git-revision-date-localized:
-      type: timeago
+      type: datetime
       enable_creation_date: false
       fallback_to_build_date: false
+      timezone: Asia/Karachi
 
 nav:
   - Home: index.md
   - Experience: experience.md
   - Execution: execution.md
   - Evidences:
-      - Amazon Private Label (Year 1): evidences/year-1-canada-private-label-report-2025.md
+      - Year-1 Operational & Financial Case Study (Amazon Private Label Business – Canada Marketplace): evidences/year-1-canada-private-label-report-2025.md
   - About: about.md
 
 extra:

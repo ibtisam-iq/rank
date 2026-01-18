@@ -607,3 +607,35 @@ body {
     padding: 0;
   }
 }
+
+
+/* =====================================================
+   CUSTOMIZATION - Last Updated Date in PKT timezone
+===================================================== */
+
+/* Change "Last Updated" label */
+.md-source-file__fact::before {
+  content: "Last Updated: ";
+  font-weight: 600;
+}
+
+/* Hide clock icon before "Last Updated" date */
+.md-source-file__fact svg {
+  display: none !important;
+}
+
+/* Add PKT timezone after the date */
+.md-source-file__fact::after {
+  content: " PKT";
+  font-weight: 600;
+  color: var(--md-default-fg-color);
+}
+
+/* Optional: Style the entire date line */
+.md-source-file__fact {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--md-default-fg-color--light);
+}
