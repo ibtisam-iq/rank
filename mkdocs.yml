@@ -4,7 +4,7 @@ site_author: "Muhammad Ibtisam"
 site_url: "https://rank.ibtisam-iq.com"
 
 use_directory_urls: true
-strict: false
+strict: true
 
 theme:
   name: material
@@ -48,11 +48,11 @@ markdown_extensions:
 plugins:
   - search
   - git-revision-date-localized:
-      type: datetime
+      type: custom                              
+      custom_format: "%B %d, %Y %I:%M:%S %p"   
       enable_creation_date: false
       fallback_to_build_date: false
       timezone: Asia/Karachi
-      datetime_format: "%B %d, %Y %I:%M:%S %p"  # Shows AM/PM
       locale: en
 
 nav:

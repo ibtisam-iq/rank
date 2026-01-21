@@ -521,7 +521,7 @@ body {
   justify-content: center;
   width: 48px !important;
   height: 48px !important;
-  font-size: 1.4rem;
+  font-size: 2rem !important;
   border-radius: 50%;
   text-decoration: none !important;
   transition: all 0.2s ease;
@@ -547,10 +547,25 @@ body {
   transform: scale(0.95);
 }
 
-.md-social__link svg {
+/* Force SVG/Icon size - Maximum specificity */
+.md-social__link svg,
+.md-footer-meta .md-social__link svg,
+a.md-social__link svg {
   fill: currentColor !important;
-  width: 1.4rem;
-  height: 1.4rem;
+  width: 2rem !important;
+  height: 2rem !important;
+  min-width: 2rem !important;
+  min-height: 2rem !important;
+  transform: scale(1.2) !important;  /* ✅ Extra scaling if needed */
+  transform-origin: center !important;
+}
+
+/* FontAwesome <i> tag fallback */
+.md-social__link i,
+.md-social__link [class^="fa-"],
+.md-social__link .fa-facebook {
+  font-size: 2rem !important;
+  line-height: 1 !important;
 }
 
 /* =====================================================
