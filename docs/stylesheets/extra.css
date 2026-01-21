@@ -864,3 +864,130 @@ a.md-social__link svg {
   }
 }
 
+/* =====================================================
+   APPENDED FIX — Mobile Header Title Ellipsis (SAFE)
+   Source: extra-22-dark.css
+   Purpose: Keep title inside header on scroll (1 line)
+===================================================== */
+
+@media screen and (max-width: 76.1875em) {
+
+  /* Allow flex item to shrink properly */
+  .md-header__title {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;          /* 🔑 critical */
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Actual ellipsis behavior */
+  .md-header__title .md-header__ellipsis {
+    display: block !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+  }
+
+  /* Page title text itself */
+  .md-header__topic {
+    max-width: 100% !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Hide site name, show page title only */
+  .md-header__title[data-md-component="header-title"]
+  .md-header__topic:first-child {
+    display: none !important;
+  }
+
+  .md-header__title[data-md-component="header-title"]
+  .md-header__topic:last-child {
+    display: block !important;
+    position: static !important;
+    opacity: 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Homepage edge case */
+  .md-header__topic:only-child {
+    display: block !important;
+  }
+}
+
+/* =====================================================
+   MOBILE HEADER & NAV CLEANUP (CONSOLIDATED)
+   - Single-line header title with ellipsis
+   - Proper vertical alignment with logo
+   - No duplicate H1 in content
+   - No site name in mobile drawer
+===================================================== */
+
+@media screen and (max-width: 76.1875em) {
+
+  /* ===== HEADER TITLE (ELLIPSIS + ALIGNMENT) ===== */
+
+  .md-header__title {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    line-height: 1.4 !important;
+    height: 100%;
+  }
+
+  .md-header__title .md-header__ellipsis {
+    display: flex !important;
+    align-items: center !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+    line-height: 1 !important;
+  }
+
+  .md-header__topic {
+    max-width: 100% !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+  }
+
+  /* Hide site name, show page title only */
+  .md-header__title[data-md-component="header-title"]
+  .md-header__topic:first-child {
+    display: none !important;
+  }
+
+  .md-header__title[data-md-component="header-title"]
+  .md-header__topic:last-child {
+    display: block !important;
+    position: static !important;
+    opacity: 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* ===== REMOVE DUPLICATE PAGE TITLE IN CONTENT ===== */
+
+  .md-content__inner > .md-typeset > h1:first-child {
+    display: none !important;
+  }
+
+  /* ===== REMOVE SITE NAME FROM MOBILE DRAWER ===== */
+
+  .md-nav--primary .md-nav__title {
+    display: none !important;
+  }
+
+  .md-nav--primary {
+    padding-top: 0 !important;
+  }
+}
