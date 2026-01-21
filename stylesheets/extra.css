@@ -1,0 +1,993 @@
+/* =====================================================
+   GLOBAL BASELINE - Cross-browser consistency
+===================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  padding-top: 0 !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* =====================================================
+   LAYOUT — Proper spacing like Trivy
+===================================================== */
+
+@media (min-width: 1024px) {
+  .md-sidebar--primary,
+  .md-sidebar--secondary {
+    display: none !important;
+  }
+}
+
+.md-main__inner {
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+.md-grid {
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+/* Add top padding to content to account for fixed header + tabs */
+.md-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 3rem;
+  width: 100%;
+}
+
+@media (min-width: 1920px) {
+  .md-content {
+    max-width: 1600px;
+    padding: 2.5rem 4rem;
+  }
+}
+
+@media (max-width: 1440px) {
+  .md-content {
+    padding: 2rem 2.5rem;
+    max-width: 1200px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .md-content {
+    padding: 1.5rem 2rem;
+    max-width: 1100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .md-content {
+    padding: 1.5rem 1.5rem;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .md-content {
+    padding: 1rem 1rem;
+  }
+}
+
+/* =====================================================
+   HEADER — Elegant, like Trivy
+===================================================== */
+
+.md-header {
+  background-color: #0d1117 !important;
+  color: rgba(255, 255, 255, 0.87) !important;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+  height: auto !important;
+  position: sticky !important;  /* ✅ Back to sticky */
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+.md-main {
+  margin-top: 0 !important;
+}
+
+/* Header inner - proper spacing */
+.md-header__inner {
+  padding: 0.4rem 2rem !important;
+  display: flex;
+  align-items: center;
+  min-height: 40px !important;
+  height: auto !important;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1280px) {
+  .md-header__inner {
+    padding: 0.6rem 1.5rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .md-header__inner {
+    padding: 0.5rem 1rem !important;
+  }
+}
+
+/* Logo */
+.md-header__button.md-logo {
+  margin: 0 !important;
+  padding: 0 !important;
+  margin-right: 1rem !important;
+}
+
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  width: 28px !important;
+  height: 28px !important;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .md-header__button.md-logo img,
+  .md-header__button.md-logo svg {
+    width: 28px !important;
+    height: 28px !important;
+  }
+}
+
+/* Title container */
+.md-header__title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0 !important;
+  padding: 0 !important;
+  flex-grow: 1;
+  color: rgba(255, 255, 255, 0.87) !important;
+  display: flex;
+  align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Hide site name when on page, show only page title */
+.md-header__topic:first-child {
+  display: none !important;
+}
+
+.md-header__topic:last-child {
+  display: block !important;
+  position: static !important;
+  opacity: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Show site name on homepage only */
+.md-header__topic:first-child:last-child {
+  display: block !important;
+}
+
+/* Header controls */
+.md-header__option {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.md-header__button {
+  color: rgba(255, 255, 255, 0.87) !important;
+  margin: 0 0.25rem !important;
+  padding: 0.25rem !important;
+}
+
+.md-header svg {
+  fill: rgba(255, 255, 255, 0.87) !important;
+}
+
+/* Search */
+.md-search {
+  margin: 0 0.5rem !important;
+}
+
+.md-search__form {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+}
+
+.md-search__input {
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.87);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.md-search__input::placeholder {
+  color: rgba(255, 255, 255, 0.54);
+}
+
+/* =====================================================
+   NAVIGATION TABS — Proper spacing
+===================================================== */
+
+.md-tabs {
+  background-color: #0d1117 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: sticky !important;  /* ✅ Sticky, not fixed */
+  top: 40px !important;  /* ✅ Stick below header */
+  z-index: 999 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;  /* Better visibility */
+}
+
+/* Force tabs to stay visible */
+.md-tabs[data-md-state="hidden"] {
+  transform: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.md-tabs__list {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0 !important;
+  position: relative !important;
+  z-index: 1001 !important;
+  margin: 0 auto !important;
+  padding-left: 2rem !important;
+  list-style: none;
+  max-width: 1600px;
+}
+
+@media (max-width: 1280px) {
+  .md-tabs__list {
+    padding-left: 1.5rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .md-tabs__list {
+    padding-left: 1rem !important;
+  }
+}
+
+.md-tabs__item {
+  display: inline-flex;
+  position: relative !important;
+  z-index: 1002 !important;
+  margin: 0;
+  padding: 0;
+}
+
+.md-tabs__link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.65) !important;
+  padding: 0.5rem 1.25rem !important;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  border-bottom: 2px solid transparent;
+  opacity: 1 !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.md-tabs__link:hover {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.md-tabs__item--active .md-tabs__link {
+  color: rgba(255, 255, 255, 1) !important;
+  font-weight: 600;
+  border-bottom-color: #3b82f6;
+}
+
+/* =====================================================
+   TYPOGRAPHY - Consistent across all browsers
+===================================================== */
+
+.md-typeset {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--md-default-fg-color);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.md-typeset h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0.5rem 0 1.25rem !important;  /* ✅ Reduced top margin */
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Remove top margin from first H1 */
+.md-content__inner > .md-typeset > h1:first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.md-typeset h2 {
+  font-size: 1.875rem;
+  font-weight: 600;
+  margin: 2.25rem 0 1rem;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.md-typeset h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 1.75rem 0 0.875rem;
+  line-height: 1.4;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.md-typeset h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.75rem;
+  line-height: 1.5;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.md-typeset p {
+  margin: 1.125rem 0;
+}
+
+.md-typeset ul,
+.md-typeset ol {
+  margin: 1.125rem 0;
+  padding-left: 1.75rem;
+}
+
+.md-typeset li {
+  margin: 0.625rem 0;
+}
+
+.md-typeset li > p {
+  margin: 0.625rem 0;
+}
+
+.md-typeset blockquote {
+  border-left: 4px solid var(--md-default-fg-color--light);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  color: var(--md-default-fg-color--light);
+  font-style: italic;
+  font-size: 1.0625rem;
+}
+
+.md-typeset code {
+  background-color: var(--md-code-bg-color);
+  padding: 0.125rem 0.375rem;
+  border-radius: 3px;
+  font-size: 0.9375em;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
+
+.md-typeset pre {
+  margin: 1.5rem 0;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+.md-typeset pre > code {
+  padding: 1rem;
+  display: block;
+  font-size: 0.9375rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+}
+
+/* =====================================================
+   TABLES
+===================================================== */
+
+.md-typeset table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.9375rem;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.md-typeset table:not([class]) {
+  border: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.md-typeset table th {
+  font-weight: 600;
+  padding: 0.875rem 1rem;
+  text-align: left;
+  background-color: var(--md-default-fg-color--lightest);
+  border-bottom: 2px solid var(--md-default-fg-color--lighter);
+}
+
+.md-typeset table td {
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  vertical-align: top;
+}
+
+.md-typeset table tr:last-child td {
+  border-bottom: none;
+}
+
+.md-typeset table tr:hover {
+  background-color: var(--md-default-fg-color--lightest);
+  transition: background-color 0.2s ease;
+}
+
+/* =====================================================
+   LINKS
+===================================================== */
+
+.md-typeset a {
+  color: #3b82f6;
+  text-decoration: none;
+  border-bottom: none !important;
+  transition: color 0.2s ease;
+}
+
+.md-typeset a:hover {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+/* =====================================================
+   ADMONITIONS
+===================================================== */
+
+.md-typeset .admonition {
+  margin: 1.5rem 0;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid;
+  border-radius: 4px;
+  background-color: var(--md-default-fg-color--lightest);
+}
+
+.md-typeset .admonition-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* =====================================================
+   FOOTER — Facebook icon
+===================================================== */
+
+.md-footer {
+  background: transparent !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.md-footer-nav {
+  display: none !important;
+}
+
+/* Facebook icon - bottom right */
+.md-footer-meta {
+  position: fixed !important;
+  bottom: 2rem !important;
+  right: 2rem !important;
+  z-index: 999 !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+}
+
+.md-footer-meta__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.md-social {
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+}
+
+.md-social__link {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 48px !important;
+  height: 48px !important;
+  font-size: 2rem !important;
+  border-radius: 50%;
+  text-decoration: none !important;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+[data-md-color-scheme="default"] .md-social__link {
+  background-color: rgba(0, 0, 0, 0.85) !important;
+  color: #ffffff !important;
+}
+
+[data-md-color-scheme="slate"] .md-social__link {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  color: #0d1117 !important;
+}
+
+.md-social__link:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.md-social__link:active {
+  transform: scale(0.95);
+}
+
+/* Force SVG/Icon size - Maximum specificity */
+.md-social__link svg,
+.md-footer-meta .md-social__link svg,
+a.md-social__link svg {
+  fill: currentColor !important;
+  width: 2rem !important;
+  height: 2rem !important;
+  min-width: 2rem !important;
+  min-height: 2rem !important;
+  transform: scale(1.2) !important;  /* ✅ Extra scaling if needed */
+  transform-origin: center !important;
+}
+
+/* FontAwesome <i> tag fallback */
+.md-social__link i,
+.md-social__link [class^="fa-"],
+.md-social__link .fa-facebook {
+  font-size: 2rem !important;
+  line-height: 1 !important;
+}
+
+/* =====================================================
+   CONTENT SPACING
+===================================================== */
+
+.md-content__inner {
+  padding-top: 0;
+  padding-bottom: 1rem;
+}
+
+.md-content__button {
+  display: none;
+}
+
+/* Reduce left indentation for content lists */
+.md-content ul {
+  padding-left: 0;
+  margin-left: 0;
+}
+
+/* Nested lists (like View A / View B) */
+.md-content ul ul {
+  padding-left: 0;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 768px) {
+  .md-typeset h1 {
+    font-size: 1.875rem;
+  }
+
+  .md-typeset h2 {
+    font-size: 1.5rem;
+  }
+
+  .md-typeset h3 {
+    font-size: 1.25rem;
+  }
+
+  .md-footer-meta {
+    bottom: 1.5rem !important;
+    right: 1.5rem !important;
+  }
+
+  .md-social__link {
+    width: 44px !important;
+    height: 44px !important;
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .md-tabs__list {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .md-tabs__link {
+    padding: 0.6rem 1rem !important;
+    white-space: nowrap;
+  }
+
+  .md-footer-meta {
+    bottom: 1rem !important;
+    right: 1rem !important;
+  }
+
+  .md-social__link {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
+
+/* =====================================================
+   PRINT STYLES
+===================================================== */
+
+@media print {
+  .md-header,
+  .md-tabs,
+  .md-footer-meta,
+  .md-search,
+  .md-header__button {
+    display: none !important;
+  }
+
+  .md-content {
+    max-width: 100%;
+    padding: 0;
+  }
+}
+
+/* =====================================================
+   CUSTOMIZATION - Last Updated Date in PKT timezone
+===================================================== */
+
+/* Change "Last Updated" label */
+.md-source-file__fact::before {
+  content: "Last Updated: ";
+  font-weight: 600;
+}
+
+/* Hide clock icon before "Last Updated" date */
+.md-source-file__fact svg {
+  display: none !important;
+}
+
+/* Add PKT timezone after the date*/
+.md-source-file__fact::after {
+  content: " PKT";
+  font-weight: 600;
+  color: var(--md-default-fg-color);
+}
+
+/* Optional: Style the entire date line */
+.md-source-file__fact {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--md-default-fg-color--light);
+}
+
+/* =====================================================
+   MOBILE HEADER & LOGO FIXES
+===================================================== */
+
+/* Fix 1: Mobile header background color (match desktop) */
+@media screen and (max-width: 76.1875em) {
+  /* Mobile header bar - Dark mode specific */
+  [data-md-color-scheme="slate"] .md-header {
+    background-color: #0d1117 !important;
+  }
+  
+  /* Mobile header bar - Light mode specific */
+  [data-md-color-scheme="default"] .md-header {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  /* Mobile header inner - proper spacing */
+  .md-header__inner {
+    padding: 0.5rem 0.75rem !important;
+    gap: 0.5rem !important;
+  }
+  
+  /* ===== MOBILE DRAWER - DARK MODE ===== */
+  [data-md-color-scheme="slate"] .md-nav--primary {
+    background-color: #0d1117 !important;
+  }
+  
+  [data-md-color-scheme="slate"] .md-nav--primary .md-nav__title {
+    background-color: #1a1a1a !important;
+    color: rgba(255, 255, 255, 0.87) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  [data-md-color-scheme="slate"] .md-nav--primary .md-nav__link {
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+  
+  [data-md-color-scheme="slate"] .md-nav--primary .md-nav__link:hover,
+  [data-md-color-scheme="slate"] .md-nav--primary .md-nav__link:focus {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+  
+  [data-md-color-scheme="slate"] .md-nav--primary .md-nav__link--active {
+    color: #3b82f6 !important;
+    font-weight: 600;
+  }
+  
+  /* ===== MOBILE DRAWER - LIGHT MODE ===== */
+  [data-md-color-scheme="default"] .md-nav--primary {
+    background-color: #ffffff !important;
+  }
+  
+  [data-md-color-scheme="default"] .md-nav--primary .md-nav__title {
+    background-color: #f5f5f5 !important;
+    color: rgba(0, 0, 0, 0.87) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  [data-md-color-scheme="default"] .md-nav--primary .md-nav__link {
+    color: rgba(0, 0, 0, 0.85) !important;  /* ✅ BLACK text in light mode */
+  }
+  
+  [data-md-color-scheme="default"] .md-nav--primary .md-nav__link:hover,
+  [data-md-color-scheme="default"] .md-nav--primary .md-nav__link:focus {
+    color: #000000 !important;
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  [data-md-color-scheme="default"] .md-nav--primary .md-nav__link--active {
+    color: #3b82f6 !important;
+    font-weight: 600;
+  }
+  
+  /* Hamburger icon color - Dark mode */
+  [data-md-color-scheme="slate"] .md-nav__button svg {
+    fill: rgba(255, 255, 255, 0.87) !important;
+  }
+  
+  /* Hamburger icon color - Light mode */
+  [data-md-color-scheme="default"] .md-nav__button svg {
+    fill: rgba(0, 0, 0, 0.87) !important;
+  }
+}
+
+/* Fix 2: Show logo in mobile header (top bar) */
+@media screen and (max-width: 76.1875em) {
+  .md-header .md-header__button.md-logo {
+    display: inline-flex !important;
+    padding: 0;
+    margin: 0 !important;
+  }
+  
+  .md-header .md-header__button.md-logo img,
+  .md-header .md-header__button.md-logo svg {
+    width: 28px !important;
+    height: 28px !important;
+    display: block;
+  }
+  
+  /* Mobile title - reduce spacing */
+  .md-header__title {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 1rem !important;
+  }
+  
+  /* Mobile title color - Dark mode */
+  [data-md-color-scheme="slate"] .md-header__title {
+    color: rgba(255, 255, 255, 0.87) !important;
+  }
+  
+  /* Mobile title color - Light mode */
+  [data-md-color-scheme="default"] .md-header__title {
+    color: rgba(0, 0, 0, 0.87) !important;
+  }
+  
+  /* Right side controls - proper spacing */
+  .md-header__option {
+    margin-left: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.25rem !important;
+  }
+  
+  /* Search bar in mobile */
+  .md-search {
+    margin: 0 !important;
+    padding: 0 0.25rem !important;
+  }
+  
+  /* Theme toggle button */
+  .md-header__button:not(.md-logo) {
+    margin: 0 !important;
+    padding: 0.25rem !important;
+  }
+  
+  /* Search icon - Dark mode */
+  [data-md-color-scheme="slate"] .md-header__button svg {
+    fill: rgba(255, 255, 255, 0.87) !important;
+  }
+  
+  /* Search icon - Light mode */
+  [data-md-color-scheme="default"] .md-header__button svg {
+    fill: rgba(0, 0, 0, 0.87) !important;
+  }
+}
+
+/* Fix 3: Mobile drawer (side menu) spacing */
+@media screen and (max-width: 76.1875em) {
+  /* Title in drawer - proper spacing */
+  .md-nav--primary .md-nav__title {
+    padding: 1rem 1.2rem !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+  }
+  
+  /* Site name text styling */
+  .md-nav--primary .md-nav__title .md-ellipsis {
+    font-weight: 600 !important;
+    font-size: 1.05rem !important;
+  }
+  
+  /* Back button spacing */
+  .md-nav--primary .md-nav__title .md-nav__button {
+    margin: 0 0.25rem 0 -0.4rem;
+  }
+}
+
+/* =====================================================
+   APPENDED FIX — Mobile Header Title Ellipsis (SAFE)
+   Source: extra-22-dark.css
+   Purpose: Keep title inside header on scroll (1 line)
+===================================================== */
+
+@media screen and (max-width: 76.1875em) {
+
+  /* Allow flex item to shrink properly */
+  .md-header__title {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;          /* 🔑 critical */
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Actual ellipsis behavior */
+  .md-header__title .md-header__ellipsis {
+    display: block !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+  }
+
+  /* Page title text itself */
+  .md-header__topic {
+    max-width: 100% !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Hide site name, show page title only */
+  .md-header__title[data-md-component="header-title"]
+  .md-header__topic:first-child {
+    display: none !important;
+  }
+
+  .md-header__title[data-md-component="header-title"]
+  .md-header__topic:last-child {
+    display: block !important;
+    position: static !important;
+    opacity: 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Homepage edge case */
+  .md-header__topic:only-child {
+    display: block !important;
+  }
+}
+
+/* =====================================================
+   MOBILE HEADER & NAV CLEANUP (CONSOLIDATED)
+   - Single-line header title with ellipsis
+   - Proper vertical alignment with logo
+   - No duplicate H1 in content
+   - No site name in mobile drawer
+===================================================== */
+
+@media screen and (max-width: 76.1875em) {
+
+  /* ===== HEADER TITLE (ELLIPSIS + ALIGNMENT) ===== */
+
+  .md-header__title {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    line-height: 1.4 !important;
+    height: 100%;
+  }
+
+  .md-header__title .md-header__ellipsis {
+    display: flex !important;
+    align-items: center !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+    line-height: 1 !important;
+  }
+
+  .md-header__topic {
+    max-width: 100% !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+  }
+
+  /* Hide site name, show page title only */
+  .md-header__title[data-md-component="header-title"]
+  .md-header__topic:first-child {
+    display: none !important;
+  }
+
+  .md-header__title[data-md-component="header-title"]
+  .md-header__topic:last-child {
+    display: block !important;
+    position: static !important;
+    opacity: 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* ===== REMOVE DUPLICATE PAGE TITLE IN CONTENT ===== */
+
+  .md-content__inner > .md-typeset > h1:first-child {
+    display: none !important;
+  }
+
+  /* ===== REMOVE SITE NAME FROM MOBILE DRAWER ===== */
+
+  .md-nav--primary .md-nav__title {
+    display: none !important;
+  }
+
+  .md-nav--primary {
+    padding-top: 0 !important;
+  }
+}
