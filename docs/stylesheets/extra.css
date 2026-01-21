@@ -17,6 +17,7 @@ body {
   line-height: 1.6;
   margin: 0;
   padding: 0;
+  padding-top: 0 !important;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
@@ -41,7 +42,7 @@ body {
   margin: 0 !important;
 }
 
-/* Content with proper margins - NOT edge-to-edge */
+/* Add top padding to content to account for fixed header + tabs */
 .md-content {
   max-width: 1400px;
   margin: 0 auto;
@@ -57,14 +58,14 @@ body {
 }
 
 @media (max-width: 1440px) {
-  .md-content { 
-    padding: 2rem 2.5rem; 
+  .md-content {
+    padding: 2rem 2.5rem;
     max-width: 1200px;
   }
 }
 
 @media (max-width: 1280px) {
-  .md-content { 
+  .md-content {
     padding: 1.5rem 2rem;
     max-width: 1100px;
   }
@@ -92,18 +93,25 @@ body {
   color: rgba(255, 255, 255, 0.87) !important;
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
   height: auto !important;
-  position: sticky;
-  top: 0;
+  position: sticky !important;  /* ✅ Back to sticky */
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
   z-index: 1000;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
 }
 
+.md-main {
+  margin-top: 0 !important;
+}
+
 /* Header inner - proper spacing */
 .md-header__inner {
-  padding: 0.6rem 2rem !important;
+  padding: 0.4rem 2rem !important;
   display: flex;
   align-items: center;
-  min-height: 48px !important;
+  min-height: 40px !important;
   height: auto !important;
   max-width: 1600px;
   margin: 0 auto;
@@ -130,8 +138,8 @@ body {
 
 .md-header__button.md-logo img,
 .md-header__button.md-logo svg {
-  width: 32px !important;
-  height: 32px !important;
+  width: 28px !important;
+  height: 28px !important;
   display: block;
 }
 
@@ -220,10 +228,19 @@ body {
   background-color: #0d1117 !important;
   border-top: 1px solid rgba(255, 255, 255, 0.03);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  position: relative !important;
-  z-index: 1000 !important;
+  position: sticky !important;  /* ✅ Sticky, not fixed */
+  top: 40px !important;  /* ✅ Stick below header */
+  z-index: 999 !important;
   margin: 0 !important;
   padding: 0 !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;  /* Better visibility */
+}
+
+/* Force tabs to stay visible */
+.md-tabs[data-md-state="hidden"] {
+  transform: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .md-tabs__list {
@@ -264,7 +281,7 @@ body {
   font-size: 0.875rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.65) !important;
-  padding: 0.65rem 1.25rem !important;
+  padding: 0.5rem 1.25rem !important;
   text-decoration: none;
   transition: color 0.2s ease;
   border-bottom: 2px solid transparent;
@@ -298,10 +315,16 @@ body {
 .md-typeset h1 {
   font-size: 2.5rem;
   font-weight: 700;
-  margin: 2.5rem 0 1.25rem;
+  margin: 0.5rem 0 1.25rem !important;  /* ✅ Reduced top margin */
   line-height: 1.25;
   letter-spacing: -0.02em;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Remove top margin from first H1 */
+.md-content__inner > .md-typeset > h1:first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 }
 
 .md-typeset h2 {
@@ -639,7 +662,7 @@ body {
   display: none !important;
 }
 
-/* Add PKT timezone after the date */
+/* Add PKT timezone after the date*/
 .md-source-file__fact::after {
   content: " PKT";
   font-weight: 600;
@@ -656,126 +679,173 @@ body {
 }
 
 /* =====================================================
-   PURE CSS DROPDOWN - Hover-based navigation
+   MOBILE HEADER & LOGO FIXES
 ===================================================== */
 
-/* Icon styling */
-.dd-icon {
-  margin-left: 0.4rem;
-  font-size: 0.7rem;
-  opacity: 0.7;
+/* Fix 1: Mobile header background color (match desktop) */
+@media screen and (max-width: 76.1875em) {
+  /* Mobile header bar - Dark mode specific */
+  [data-md-color-scheme="slate"] .md-header {
+    background-color: #0d1117 !important;
+  }
+  
+  /* Mobile header bar - Light mode specific */
+  [data-md-color-scheme="default"] .md-header {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  /* Mobile header inner - proper spacing */
+  .md-header__inner {
+    padding: 0.5rem 0.75rem !important;
+    gap: 0.5rem !important;
+  }
+  
+  /* ===== MOBILE DRAWER - DARK MODE ===== */
+  [data-md-color-scheme="slate"] .md-nav--primary {
+    background-color: #0d1117 !important;
+  }
+  
+  [data-md-color-scheme="slate"] .md-nav--primary .md-nav__title {
+    background-color: #1a1a1a !important;
+    color: rgba(255, 255, 255, 0.87) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  [data-md-color-scheme="slate"] .md-nav--primary .md-nav__link {
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+  
+  [data-md-color-scheme="slate"] .md-nav--primary .md-nav__link:hover,
+  [data-md-color-scheme="slate"] .md-nav--primary .md-nav__link:focus {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+  
+  [data-md-color-scheme="slate"] .md-nav--primary .md-nav__link--active {
+    color: #3b82f6 !important;
+    font-weight: 600;
+  }
+  
+  /* ===== MOBILE DRAWER - LIGHT MODE ===== */
+  [data-md-color-scheme="default"] .md-nav--primary {
+    background-color: #ffffff !important;
+  }
+  
+  [data-md-color-scheme="default"] .md-nav--primary .md-nav__title {
+    background-color: #f5f5f5 !important;
+    color: rgba(0, 0, 0, 0.87) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  [data-md-color-scheme="default"] .md-nav--primary .md-nav__link {
+    color: rgba(0, 0, 0, 0.85) !important;  /* ✅ BLACK text in light mode */
+  }
+  
+  [data-md-color-scheme="default"] .md-nav--primary .md-nav__link:hover,
+  [data-md-color-scheme="default"] .md-nav--primary .md-nav__link:focus {
+    color: #000000 !important;
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  [data-md-color-scheme="default"] .md-nav--primary .md-nav__link--active {
+    color: #3b82f6 !important;
+    font-weight: 600;
+  }
+  
+  /* Hamburger icon color - Dark mode */
+  [data-md-color-scheme="slate"] .md-nav__button svg {
+    fill: rgba(255, 255, 255, 0.87) !important;
+  }
+  
+  /* Hamburger icon color - Light mode */
+  [data-md-color-scheme="default"] .md-nav__button svg {
+    fill: rgba(0, 0, 0, 0.87) !important;
+  }
 }
 
-/* Dropdown container - HIDDEN by default */
-.custom-dropdown {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  margin-top: 0.5rem;
-  z-index: 999999;
-  pointer-events: auto;
-}
-
-/* SHOW dropdown on tab hover - DISABLED to allow clicking on tab without dropdown
-.md-tabs__item:hover .custom-dropdown {
-  display: block !important;
-}*/
-
-/* KEEP dropdown visible when hovering it */
-.custom-dropdown:hover {
-  display: block !important;
-}
-
-/* Level 1 container */
-.dd-level-1 {
-  background: #0d1117;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  padding: 0.5rem 0;
-  min-width: 200px;
-}
-
-/* All dropdown items */
-.dd-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.7rem 1.25rem;
-  color: rgba(255, 255, 255, 0.85);
-  cursor: pointer;
-  position: relative;
-  white-space: nowrap;
-  transition: background-color 0.15s ease;
-}
-
-.dd-item:hover {
-  background-color: rgba(255, 255, 255, 0.08);
-  color: #ffffff;
-}
-
-/* Items with submenu - add arrow */
-.dd-item.has-sub::after {
-  content: "→";
-  margin-left: 1.5rem;
-  opacity: 0.7;
-}
-
-/* Level 2 & 3 dropdowns - HIDDEN by default */
-.dd-level-2,
-.dd-level-3 {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 100%;
-  margin-left: 0.5rem;
-  background: #0d1117;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  padding: 0.5rem 0;
-  min-width: 200px;
-  z-index: 1000000;
-}
-
-/* SHOW level 2 when hovering parent */
-.dd-item.has-sub:hover > .dd-level-2 {
-  display: block !important;
-}
-
-/* SHOW level 3 when hovering parent */
-.dd-level-2 .dd-item.has-sub:hover > .dd-level-3 {
-  display: block !important;
-}
-
-/* Links in level 3 */
-.dd-level-3 a {
-  display: block;
-  padding: 0.7rem 1.25rem;
-  color: rgba(255, 255, 255, 0.85);
-  text-decoration: none;
-  transition: background-color 0.15s ease;
-}
-
-.dd-level-3 a:hover {
-  background-color: rgba(59, 130, 246, 0.15);
-  color: #3b82f6;
-}
-
-/* Mobile - stack vertically */
-@media (max-width: 768px) {
-  .custom-dropdown {
-    position: relative;
-    margin-top: 0;
+/* Fix 2: Show logo in mobile header (top bar) */
+@media screen and (max-width: 76.1875em) {
+  .md-header .md-header__button.md-logo {
+    display: inline-flex !important;
+    padding: 0;
+    margin: 0 !important;
+  }
+  
+  .md-header .md-header__button.md-logo img,
+  .md-header .md-header__button.md-logo svg {
+    width: 28px !important;
+    height: 28px !important;
     display: block;
   }
   
-  .dd-level-2,
-  .dd-level-3 {
-    position: relative;
-    left: 0;
-    margin-left: 1rem;
-    margin-top: 0.25rem;
+  /* Mobile title - reduce spacing */
+  .md-header__title {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 1rem !important;
+  }
+  
+  /* Mobile title color - Dark mode */
+  [data-md-color-scheme="slate"] .md-header__title {
+    color: rgba(255, 255, 255, 0.87) !important;
+  }
+  
+  /* Mobile title color - Light mode */
+  [data-md-color-scheme="default"] .md-header__title {
+    color: rgba(0, 0, 0, 0.87) !important;
+  }
+  
+  /* Right side controls - proper spacing */
+  .md-header__option {
+    margin-left: auto !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.25rem !important;
+  }
+  
+  /* Search bar in mobile */
+  .md-search {
+    margin: 0 !important;
+    padding: 0 0.25rem !important;
+  }
+  
+  /* Theme toggle button */
+  .md-header__button:not(.md-logo) {
+    margin: 0 !important;
+    padding: 0.25rem !important;
+  }
+  
+  /* Search icon - Dark mode */
+  [data-md-color-scheme="slate"] .md-header__button svg {
+    fill: rgba(255, 255, 255, 0.87) !important;
+  }
+  
+  /* Search icon - Light mode */
+  [data-md-color-scheme="default"] .md-header__button svg {
+    fill: rgba(0, 0, 0, 0.87) !important;
   }
 }
+
+/* Fix 3: Mobile drawer (side menu) spacing */
+@media screen and (max-width: 76.1875em) {
+  /* Title in drawer - proper spacing */
+  .md-nav--primary .md-nav__title {
+    padding: 1rem 1.2rem !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+  }
+  
+  /* Site name text styling */
+  .md-nav--primary .md-nav__title .md-ellipsis {
+    font-weight: 600 !important;
+    font-size: 1.05rem !important;
+  }
+  
+  /* Back button spacing */
+  .md-nav--primary .md-nav__title .md-nav__button {
+    margin: 0 0.25rem 0 -0.4rem;
+  }
+}
+

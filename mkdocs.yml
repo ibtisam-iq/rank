@@ -1,5 +1,5 @@
 site_name: "Ibtisam IQ"
-site_description: "Amazon Private Label & Marketplace Growth — Case Studies & Execution Playbooks" 
+site_description: "Amazon Private Label Operator & Growth Leader — Muhammad Ibtisam" 
 site_author: "Muhammad Ibtisam"
 site_url: "https://rank.ibtisam-iq.com"
 
@@ -8,12 +8,14 @@ strict: false
 
 theme:
   name: material
+  # custom_dir: docs/overrides
   favicon: images/favicon.ico
   logo: images/favicon.svg
   language: en
   features:
     - navigation.tabs
     - navigation.top
+    - navigation.tabs.sticky  # Keeps tabs visible when scrolling
     - search.highlight
     - search.suggest
     - toc.follow
@@ -50,6 +52,8 @@ plugins:
       enable_creation_date: false
       fallback_to_build_date: false
       timezone: Asia/Karachi
+      datetime_format: "%B %d, %Y %I:%M:%S %p"  # Shows AM/PM
+      locale: en
 
 nav:
   - Home: index.md
@@ -69,4 +73,5 @@ extra_css:
 
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js
+  #- javascripts/fix-timestamp.js
   #- javascripts/dropdown.js
